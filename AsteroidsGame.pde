@@ -1,11 +1,15 @@
 Spaceship ship;
 Star[] space = new Star[100];
+ArrayList <Asteroid> rocks = new ArrayList <Asteroid>();
 public void setup() 
 {
 	size(500,500);
 	ship = new Spaceship();
 	for (int i=0; i < space.length; i++){
 		space[i] = new Star();
+	}
+	for (int i=0; i < 10; i++){
+		rocks.add(new Asteroid());
 	}
 }
 public void draw() 
@@ -15,6 +19,10 @@ public void draw()
 	ship.move();
 	for (int i=0; i < space.length; i++){
 		space[i].show();
+	}
+	for (int i=0; i < rocks.size(); i++){
+		rocks.get(i).show();
+		rocks.get(i).move();
 	}
 }
 public void keyPressed() {
